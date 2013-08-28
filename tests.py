@@ -207,7 +207,7 @@ class TestNiceDecorator(unittest.TestCase):
         klass = get_decorated_class_with_instancemethod2(self.dec, self.dec2)
 
         klass_decoration_called = self.pop_called()
-        print klass_decoration_called
+        print(klass_decoration_called)
         self.assertEqual(len(klass_decoration_called), 2)
         self.assertEqual(klass_decoration_called[0][0], 'dec2: __init__')
         self.assertEqual(klass_decoration_called[1][0], '__init__')
@@ -217,7 +217,7 @@ class TestNiceDecorator(unittest.TestCase):
 
         self.assertEqual(instance.a_instancemethod('an arg'), 'returned')
         called = self.pop_called()
-        print called
+        print(called)
         self.assertEqual(called, [
             ('__call__', (instance, 'an arg',), {}),
             ('dec2: __call__', (instance, 'an arg',), {}),
@@ -266,3 +266,7 @@ class TestNiceDecorator(unittest.TestCase):
             ('__call__', (klass, 'an arg',), {}),
             ('classmethod', klass, 'an arg'),
         ])
+
+
+if __name__ == '__main__':
+    unittest.main()
