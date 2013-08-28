@@ -1,6 +1,9 @@
 build
 dist
 nosetests.xml
+.tox
+MANIFEST
+*.egg-info
 *.o
 *.lo
 *.la
