@@ -1,0 +1,15 @@
+build
+dist
+nosetests.xml
+*.o
+*.lo
+*.la
+\#*\#
+.*.rej
+*.rej
+.*~
+*~
+.\#*
+.DS_Store
+*.pyc
+*.pyo
