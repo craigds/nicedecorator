@@ -37,6 +37,14 @@ Where you might normally do something horribly confusing like this:
             output_to = sys.stderr
             return dec
 
+    @debug_function(output_to=sys.stdout)
+    def myfunc():
+        pass
+
+    @debug_function
+    def myotherfunc():
+        pass
+
 You can now do something much *nicer*:
 
     class debug_function(NiceDecorator):
@@ -49,6 +57,14 @@ You can now do something much *nicer*:
                 "%s called. args=%r, kwargs=%r" % (func.__name__, args, kwargs)
             )
             return self.func(*args, **kwargs)
+
+    @debug_function(output_to=sys.stdout)
+    def myfunc():
+        pass
+
+    @debug_function
+    def myotherfunc():
+        pass
 
 
 Licensed under the New BSD License.
