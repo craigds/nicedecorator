@@ -25,6 +25,14 @@ def wraps(fn, **kwargs):
     return functools.wraps(fn, assigned=available_attrs(fn), **kwargs)
 
 
+def with_metaclass(meta, base=object):
+    """
+    Create a base class with a metaclass.
+    Required to support both the Python 2 and 3 ways of doing metaclasses.
+    """
+    return meta("NewBase", (base,), {})
+
+
 class NiceDecoratorMeta(type):
     def __call__(self, *args, **kwargs):
         # yeah, this is confusing...
@@ -46,7 +54,7 @@ class NiceDecoratorMeta(type):
             return decorate
 
 
-class NiceDecorator(object):
+class NiceDecorator(with_metaclass(NiceDecoratorMeta, base=object)):
     """
     Base class for class-based decorators.
 
