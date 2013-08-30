@@ -10,7 +10,9 @@ Intro
 
 ``nicedecorator`` provides a *nice* way of doing decorators in Python.
 
-Where you might normally do something horribly confusing like this::
+Where you might normally do something horribly confusing like this:
+
+.. code:: python
 
     def debug_function(output_to=None):
         def dec(func):
@@ -44,7 +46,9 @@ Where you might normally do something horribly confusing like this::
     def myotherfunc():
         pass
 
-You can now do something much *nicer*::
+You can now do something much *nicer*:
+
+.. code:: python
 
     class debug_function(NiceDecorator):
         def __init__(self, func, output_to=sys.stderr):
