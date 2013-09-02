@@ -48,7 +48,7 @@ class NiceDecoratorMeta(type):
         is_decorator_factory = self.is_decorator_factory
         if is_decorator_factory is None:
             # auto-detect whether this is a decorator factory.
-            is_decorator_factory = (len(args) == 1 and callable(args[0]) and not kwargs)
+            is_decorator_factory = not (len(args) == 1 and callable(args[0]) and not kwargs)
 
         if is_decorator_factory:
             # decorator factory, like @dec()
